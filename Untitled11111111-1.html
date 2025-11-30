@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单示例</title>
+    <style>
+        body{
+            font-family:"宋体", Arial, sans-serif;
+        }
+        /* 整个菜单区域 */
+        #menu{
+            width:420px;
+            margin:80px auto;
+            border:1px solid #000;
+        }
+        /* 顶部三项菜单 */
+        #topMenu{
+            display:flex;
+        }
+        .topItem{
+            flex:1;
+            text-align:center;
+            padding:5px 0;
+            background-color:#9999ff;
+            border-right:1px solid #000;
+            cursor:pointer;
+        }
+        .topItem:last-child{
+            border-right:none;
+        }
+        /* 子菜单区域 */
+        .subMenu{
+            display:none;      /* 初始不显示 */
+            border-top:1px solid #000;
+            background-color:#ffffff;
+        }
+        .subMenu a{
+            display:block;
+            padding:3px 10px;
+            text-decoration:none;
+            color:#0000ff;
+        }
+        .subMenu a:hover{
+            background-color:#ddddff;
+        }
+    </style>
+</head>
+<body>
+
+<div id="menu">
+    <!-- 顶部菜单 -->
+    <div id="topMenu">
+        <div class="topItem" onmouseover="showSub('sub1')">系列课程</div>
+        <div class="topItem" onmouseover="showSub('sub2')">教学课件</div>
+        <div class="topItem" onmouseover="showSub('sub3')">课程大纲</div>
+    </div>
+
+    <!-- 系列课程 子菜单 -->
+    <div class="subMenu" id="sub1">
+        <a href="#">C++程序设计</a>
+        <a href="#">Java程序设计</a>
+        <a href="#">C#程序设计</a>
+    </div>
+
+    <!-- 教学课件 子菜单 -->
+    <div class="subMenu" id="sub2">
+        <a href="#">C++课件</a>
+        <a href="#">Java课件</a>
+        <a href="#">C#课件</a>
+    </div>
+
+    <!-- 课程大纲 子菜单 -->
+    <div class="subMenu" id="sub3">
+        <a href="#">C++教学大纲</a>
+        <a href="#">Java教学大纲</a>
+        <a href="#">C#教学大纲</a>
+    </div>
+</div>
+
+<script>
+    // 显示某个子菜单，隐藏其他
+    function showSub(id){
+        var subs = document.getElementsByClassName("subMenu");
+        for(var i = 0; i < subs.length; i++){
+            subs[i].style.display = "none";
+        }
+        document.getElementById(id).style.display = "block";
+    }
+</script>
+
+</body>
+</html>

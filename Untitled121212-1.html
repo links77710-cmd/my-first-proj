@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>变色表格示例</title>
+    <style>
+        body {
+            font-family: "宋体", Arial, sans-serif;
+        }
+        table {
+            margin: 80px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 6px 20px;
+        }
+        th {
+            background-color: #e0e0ff;
+        }
+    </style>
+</head>
+<body>
+
+<table id="schoolTable">
+    <tr>
+        <th>学校</th>
+        <th>专业</th>
+        <th>人数</th>
+    </tr>
+    <tr>
+        <td>北大</td>
+        <td>法律</td>
+        <td>2000</td>
+    </tr>
+    <tr>
+        <td>清华</td>
+        <td>计算机</td>
+        <td>5000</td>
+    </tr>
+    <tr>
+        <td>人大</td>
+        <td>经济</td>
+        <td>6000</td>
+    </tr>
+</table>
+
+<script>
+    // JS 给每一行注册鼠标移入/移出事件
+    window.onload = function () {
+        var table = document.getElementById("schoolTable");
+        var rows  = table.getElementsByTagName("tr");
+
+        // 从1开始，跳过表头
+        for (var i = 1; i < rows.length; i++) {
+            rows[i].onmouseover = function () {
+                this.style.backgroundColor = "#c7c7fff";   // 鼠标移入行变色（淡紫色）
+            };
+            rows[i].onmouseout = function () {
+                this.style.backgroundColor = "";          // 鼠标移出恢复原色
+            };
+        }
+    };
+</script>
+
+</body>
+</html>

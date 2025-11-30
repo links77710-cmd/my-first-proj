@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>期中成绩表</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">期中成绩表</h1>
+    <table>
+        <tr>
+            <th rowspan="2">姓名</th>
+            <th colspan="2">成绩</th>
+        </tr>
+        <tr>
+            <th>语文</th>
+            <th>数学</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td colspan="2">100</td> 
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>98</td>
+            <td>43</td>
+        </tr>
+        <tr>
+            <td>王晓彤</td>
+            <td rowspan="2">97</td> <!-- 合并语文成绩 -->
+            <td>78</td>
+        </tr>
+        <tr>
+            <td>成大才</td>
+            <td>94</td>
+        </tr>
+    </table>
+</body>
+</html>
+

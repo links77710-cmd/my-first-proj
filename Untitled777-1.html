@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多媒体播放系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .main-content {
+            display: flex;
+            flex-grow: 1;
+        }
+        .menu {
+            width: 20%;
+            background-color: #f0f0f0;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .menu a {
+            display: block;
+            margin-bottom: 10px;
+            color: blue;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            width: 80%;
+            padding: 20px;
+            background-color: white;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        #imageContent, #videoContent, #audioContent {
+            display: none;
+        }
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">多媒体播放系统</div>
+
+        <div class="main-content">
+            <div class="menu">
+                <a href="#" onclick="showImage()">图像显示</a>
+                <a href="#" onclick="showVideo()">视频播放</a>
+                <a href="#" onclick="showAudio()">音乐播放</a>
+            </div>
+
+            <div class="content">
+                <div id="imageContent">
+                    <h2>小鸭！</h2>
+                    <img src="c:\Users\凌\Desktop\下载 (1).png" alt="">
+                </div>
+                <div id="videoContent">
+                    <h2>视频播放</h2>
+                    <video width="300" controls>
+                        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                        您的浏览器不支持 HTML5 视频标签。
+                    </video>
+                </div>
+                <div id="audioContent">
+                    <h2>音乐播放</h2>
+                    <audio controls>
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+                        您的浏览器不支持音频播放。
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showImage() {
+            document.getElementById('imageContent').style.display = 'block';
+            document.getElementById('videoContent').style.display = 'none';
+            document.getElementById('audioContent').style.display = 'none';
+        }
+
+        function showVideo() {
+            document.getElementById('imageContent').style.display = 'none';
+            document.getElementById('videoContent').style.display = 'block';
+            document.getElementById('audioContent').style.display = 'none';
+        }
+
+        function showAudio() {
+            document.getElementById('imageContent').style.display = 'none';
+            document.getElementById('videoContent').style.display = 'none';
+            document.getElementById('audioContent').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

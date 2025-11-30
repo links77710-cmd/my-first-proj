@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>带CSS和输入验证的注册页面</title>
+    <style>
+        body{
+            font-family:"宋体", Arial, sans-serif;
+        }
+        h2{
+            text-align:center;
+            color:#ff6600;
+            margin-top:40px;
+        }
+        form{
+            width:700px;
+            margin:20px auto;
+        }
+        table{
+            width:100%;
+        }
+        td{
+            padding:6px;
+            vertical-align:top;
+        }
+        .label{
+            text-align:right;
+            width:120px;
+        }
+        .hint{
+            color:blue;
+            font-size:12px;
+        }
+        input[type="text"],
+        input[type="password"],
+        textarea{
+            width:260px;
+            border:1px solid #999;
+            height:20px;
+        }
+        textarea{
+            height:120px;
+        }
+        .btnRow{
+            text-align:center;
+            padding-top:15px;
+        }
+        .btnRow input{
+            width:70px;
+            height:28px;
+            margin:0 10px;
+        }
+    </style>
+    <script>
+        function trim(str){
+            return str.replace(/^\s+|\s+$/g, "");
+        }
+
+        function checkForm(){
+            var f = document.forms["regForm"];
+
+            // 用户名：字母开头，后跟字母、数字或下划线
+            var uname = trim(f.username.value);
+            var regName = /^[A-Za-z][A-Za-z0-9_]*$/;
+            if(!regName.test(uname)){
+                alert("用户名必须以字母开头，后跟字母、数字或下划线！");
+                f.username.focus();
+                return false;
+            }
+
+            // 密码：至少6位
+            var pwd = f.password.value;
+            if(pwd.length < 6){
+                alert("密码长度至少为 6 位！");
+                f.password.focus();
+                return false;
+            }
+
+            // 确认密码：一致
+            var repwd = f.repassword.value;
+            if(pwd !== repwd){
+                alert("两次输入的密码不一致！");
+                f.repassword.focus();
+                return false;
+            }
+
+            // 性别：必须选择
+            if(!f.gender[0].checked && !f.gender[1].checked){
+                alert("请选择性别！");
+                return false;
+            }
+
+            // 邮箱：简单格式检查
+            var email = trim(f.email.value);
+            var regMail = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
+            if(!regMail.test(email)){
+                alert("请输入正确的邮箱地址！");
+                f.email.focus();
+                return false;
+            }
+
+            // 基本情况：非空
+            var info = trim(f.info.value);
+            if(info.length === 0){
+                alert("请填写基本情况！");
+                f.info.focus();
+                return false;
+            }
+
+            // 协议：必须勾选
+            if(!f.agree.checked){
+                alert("请先阅读并同意用户使用协议！");
+                return false;
+            }
+
+            alert("表单验证通过，提交成功！");
+            return false; // 作业只要求验证和提示，这里阻止真正提交
+        }
+    </script>
+</head>
+<body>
+
+<h2>填写注册信息</h2>
+
+<form name="regForm" onsubmit="return checkForm();">
+    <table>
+        <tr>
+            <td class="label">用户名：</td>
+            <td>
+                <input type="text" name="username">
+            </td>
+            <td class="hint">用户名由字母开头，后跟字母、数字或下划线！</td>
+        </tr>
+
+        <tr>
+            <td class="label">密&nbsp;&nbsp;码：</td>
+            <td>
+                <input type="password" name="password">
+            </td>
+            <td class="hint">设置登录密码，至少6位！</td>
+        </tr>
+
+        <tr>
+            <td class="label">确认密码：</td>
+            <td>
+                <input type="password" name="repassword">
+            </td>
+            <td class="hint">请再输入一次你的密码！</td>
+        </tr>
+
+        <tr>
+            <td class="label">性&nbsp;&nbsp;别：</td>
+            <td>
+                <input type="radio" name="gender" value="男"> 男
+                <input type="radio" name="gender" value="女"> 女
+            </td>
+            <td class="hint">请选择你的性别！</td>
+        </tr>
+
+        <tr>
+            <td class="label">邮箱地址：</td>
+            <td>
+                <input type="text" name="email">
+            </td>
+            <td class="hint">请填写常用邮箱，可用于找回密码！</td>
+        </tr>
+
+        <tr>
+            <td class="label">基本情况：</td>
+            <td>
+                <textarea name="info"></textarea>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2">
+                <input type="checkbox" name="agree">
+                我已经仔细阅读并同意接受用户使用协议
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2" class="btnRow">
+                <input type="submit" value="确认">
+                <input type="reset"  value="取消">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

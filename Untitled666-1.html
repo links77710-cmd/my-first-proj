@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生信息注册页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        label {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .checkbox-group, .gender-group {
+            margin-bottom: 15px;
+        }
+        /* 横向排列 */
+        .checkbox-group label, .gender-group label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .checkbox-group input, .gender-group input {
+            margin-right: 5px;
+            transform: scale(0.5);  
+        }
+        .checkbox-group, .gender-group {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>学生信息注册</h1>
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- 横向排列性别选项 -->
+        <div class="gender-group">
+            <label>性别：</label>
+            <input type="radio" id="male" name="gender" value="男" required> <label for="male">男</label>
+            <input type="radio" id="female" name="gender" value="女" required> <label for="female">女</label>
+        </div>
+
+        <label for="dob">出生日期：</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="school">学校：</label>
+        <input type="text" id="school" name="school" required>
+
+        <label for="major">专业：</label>
+        <input type="text" id="major" name="major" required>
+
+        <!-- 横向排列体育特长选项 -->
+        <div class="checkbox-group">
+            <label>体育特长：</label>
+            <input type="checkbox" id="basketball" name="sports[]" value="篮球"> <label for="basketball">篮球</label>
+            <input type="checkbox" id="volleyball" name="sports[]" value="排球"> <label for="volleyball">排球</label>
+            <input type="checkbox" id="football" name="sports[]" value="足球"> <label for="football">足球</label>
+            <input type="checkbox" id="swimming" name="sports[]" value="游泳"> <label for="swimming">游泳</label>
+        </div>
+
+        <label for="photo">上传照片：</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+
+        <label for="password">密码：</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="intro">个人介绍：</label>
+        <textarea id="intro" name="intro" rows="4" required></textarea>
+
+        <button type="submit">注册</button>
+    </form>
+
+</body>
+</html>
+
+

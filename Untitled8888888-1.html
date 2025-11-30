@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>基于HTML5的注册输入验证</title>
+    <style>
+        body{
+            font-family:"宋体", Arial, sans-serif;
+        }
+        h2{
+            text-align:center;
+            color:#ff6600;
+            margin-top:40px;
+        }
+        form{
+            width:720px;
+            margin:20px auto;
+        }
+        table{
+            width:100%;
+        }
+        td{
+            padding:6px;
+            vertical-align:top;
+        }
+        .label{
+            text-align:right;
+            width:120px;
+        }
+        .hint{
+            color:blue;
+            font-size:12px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        input[type="date"],
+        textarea{
+            width:260px;
+            height:20px;
+            border:1px solid #999;
+        }
+        textarea{
+            height:120px;
+        }
+        .btnRow{
+            text-align:center;
+            padding-top:15px;
+        }
+        .btnRow input{
+            width:70px;
+            height:28px;
+            margin:0 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>填写注册信息</h2>
+
+<form>
+    <table>
+        <tr>
+            <td class="label">用户名：</td>
+            <td>
+                <input type="text" name="username"
+                       placeholder="请输入你的真实姓名！"
+                       required
+                       pattern="[A-Za-z][A-Za-z0-9_]{2,7}"
+                       title="用户名由字母开头，后跟字母、数字或下划线，长度3-8位。">
+            </td>
+            <td class="hint">用户名由字母开头，后跟字母、数字，长度为3~8个字符！</td>
+        </tr>
+
+        <tr>
+            <td class="label">密&nbsp;&nbsp;码：</td>
+            <td>
+                <input type="password" name="password"
+                       required minlength="6"
+                       title="密码至少6位。">
+            </td>
+            <td class="hint">设置登录密码，至少6位！</td>
+        </tr>
+
+        <tr>
+            <td class="label">确认密码：</td>
+            <td>
+                <input type="password" name="repassword"
+                       required minlength="6"
+                       title="请再输入一次你的密码！">
+            </td>
+            <td class="hint">请再输入一次你的密码！</td>
+        </tr>
+
+        <tr>
+            <td class="label">性&nbsp;&nbsp;别：</td>
+            <td>
+                <label><input type="radio" name="gender" value="男" required> 男</label>
+                <label><input type="radio" name="gender" value="女"> 女</label>
+            </td>
+            <td class="hint">请选择你的性别！</td>
+        </tr>
+
+        <tr>
+            <td class="label">年&nbsp;&nbsp;龄：</td>
+            <td>
+                <input type="number" name="age"
+                       required min="18" max="30"
+                       title="年龄须在18-30之间。">
+            </td>
+            <td class="hint">年龄在18~30之间！</td>
+        </tr>
+
+        <tr>
+            <td class="label">联系电话：</td>
+            <td>
+                <input type="tel" name="phone"
+                       required
+                       pattern="\d{11}"
+                       title="请输入11位手机号码。">
+            </td>
+            <td class="hint">请填写你的常用联系电话，便于联系！</td>
+        </tr>
+
+        <tr>
+            <td class="label">出生日期：</td>
+            <td>
+                <input type="date" name="birthday" required>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="label">基本情况：</td>
+            <td>
+                <textarea name="info" required></textarea>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2">
+                <input type="checkbox" name="agree" required>
+                我已经仔细阅读并同意接受用户使用协议
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2" class="btnRow">
+                <input type="submit" value="确认">
+                <input type="reset"  value="取消">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
